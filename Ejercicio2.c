@@ -103,9 +103,30 @@ void tareas_realizadas (tarea **tareaPendiente, int n){
         free(tareaRealizada[i]);
     }
     free(tareaRealizada);
+} 
+
+void buscar_tarea (tarea **v, int n){
+
+    char *aux = (char*) malloc(sizeof(char) * 100);
+    
+    printf("\n\nIngrese una frase >> ");
+    gets(aux);
+
+    char *cad = (char*) malloc(sizeof(strlen(aux+1)));
+
+    strcpy(cad, aux);
+
+    free(aux);
+    
+    for(int i=0; i<n; i++){
+        char *j = strstr(v[i]->descripcion, cad);
+        if(j!=NULL){
+
+            printf("\nResultado de la busqueda:");
+            mostrar_tareas(v[i]);
+        }
+    }
 }
-
-
 int main(){
 
     int numTarea;
@@ -122,11 +143,18 @@ int main(){
 
     inicializar(vTarea, numTarea);
 
-    fflush(stdin);
+     fflush(stdin);
 
     cargar_tareas(vTarea, numTarea);
 
     tareas_realizadas(vTarea, numTarea);
+
+    printf("\n\n>>>>BUSQUEDA DE TAREA<<<<");
+
+    fflush(stdin);
+
+    buscar_tarea(vTarea, numTarea);
+    
 
     for(int i=0; i<numTarea; i++){
         free(vTarea[i]);
