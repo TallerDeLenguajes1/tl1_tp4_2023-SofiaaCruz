@@ -105,7 +105,7 @@ void tareas_realizadas (tarea **tareaPendiente, int n){
     free(tareaRealizada);
 } 
 
-void buscar_tarea (tarea **v, int n){
+void BuscaTareaPorPalabra (tarea **v, int n){
 
     char *aux = (char*) malloc(sizeof(char) * 100);
     
@@ -117,6 +117,8 @@ void buscar_tarea (tarea **v, int n){
     strcpy(cad, aux);
 
     free(aux);
+
+    fflush(stdin);
     
     for(int i=0; i<n; i++){
         char *j = strstr(v[i]->descripcion, cad);
@@ -127,6 +129,32 @@ void buscar_tarea (tarea **v, int n){
         }
     }
 }
+
+void BuscaTareaPorId (tarea **v, int n){
+
+     int id, i;
+         
+    printf("\nIngrese el ID (entre 1 y %d) de la tarea que desea buscar >> ", n);
+    scanf("%d", &id);
+
+    fflush(stdin);
+
+    while(id < 1 || id > n){
+        printf("\nDebe ingresar un ID valido");
+        printf("\nIngrese el ID (entre 1 y %d) de la tarea que desea buscar >> ", n);
+        scanf("%d", &id);
+    }
+
+    for(i=0; i<n; i++){
+        if(id == v[i]->tareaID){
+            mostrar_tareas(v[i]);
+            return;
+        }
+    }
+
+    printf("\nNota");
+}
+
 int main(){
 
     int numTarea;
@@ -149,11 +177,26 @@ int main(){
 
     tareas_realizadas(vTarea, numTarea);
 
-    printf("\n\n>>>>BUSQUEDA DE TAREA<<<<");
+    printf("\nBusqueda de tarea");
+    int resp;
 
-    fflush(stdin);
+    printf("\nDesea realizar la busqueda \n1- Id\n2- Palabra clave\n>> ");
+    scanf("%d", &resp);
 
-    buscar_tarea(vTarea, numTarea);
+    if(resp==1){
+        printf("\n>>>>BUSQUEDA DE TAREA POR ID<<<<");
+
+        fflush(stdin);
+
+        BuscaTareaPorId(vTarea, numTarea);
+    }
+    else{
+        printf("\n\n>>>>BUSQUEDA DE TAREA POR PALABRA CLAVE<<<<");
+
+        fflush(stdin);
+
+        BuscaTareaPorPalabra(vTarea, numTarea);
+    }
     
 
     for(int i=0; i<numTarea; i++){
