@@ -1,0 +1,113 @@
+# Creado por https://www.toptal.com/developers/gitignore/api/visualstudiocode,c,executable,windows
+# Editar en https://www.toptal.com/developers/gitignore?templates=visualstudiocode,c,executable,windows
+
+### C ###
+# requisitos previos
+*.d
+
+# archivos de objetos
+*.o
+*.ko
+*.obj
+*.duende
+
+# Salida del enlazador
+*.ilk
+*.mapa
+*.Exp
+
+# encabezados precompilados
+*.gch
+*.pch
+
+# Bibliotecas
+*.lib
+*.a
+*.la
+*.lo
+
+# Objetos compartidos (incluidas las DLL de Windows)
+*.dll
+*.entonces
+*.entonces.*
+*.dylib
+
+# ejecutables
+*.exe
+*.afuera
+*.aplicación
+*.i*86
+*.x86_64
+*.maleficio
+
+# Archivos de depuración
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Resultados de la compilación del módulo Kernel
+*.modificación*
+*.cmd
+.tmp_versiones/
+módulos.pedir
+Módulo.symvers
+Mkfile.antiguo
+dkms.conf
+
+### Ejecutable ###
+*.murciélago
+*.cgi
+*.com
+*.artilugio
+*.frasco
+*.pif
+*.vb
+*.wsf
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/configuración.json
+!.vscode/tareas.json
+!.vscode/lanzamiento.json
+!.vscode/extensiones.json
+!.vscode/*.fragmentos de código
+
+# Historial local para Visual Studio Code
+.historia/
+
+# Extensiones de código de Visual Studio integradas
+*.vsix
+
+### Parche de VisualStudioCode ###
+# Ignorar todo el historial local de archivos
+.historia
+.ionuro
+
+### Ventanas ###
+# Archivos de caché de miniaturas de Windows
+Pulgares.db
+Thumbs.db: encriptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Volcar archivo
+*.stackdump
+
+# archivo de configuración de la carpeta
+[Dd]esktop.ini
+
+# Papelera de reciclaje utilizada en archivos compartidos
+$RECICLAJE.BIN/
+
+# archivos del instalador de Windows
+*.taxi
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Atajos de Windows
+*.lnk
+
+# Fin de https://www.toptal.com/developers/gitignore/api/visualstudiocode,c,executable,windows
