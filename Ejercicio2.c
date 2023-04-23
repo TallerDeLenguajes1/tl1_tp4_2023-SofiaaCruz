@@ -105,6 +105,27 @@ void tareas_realizadas (tarea **tareaPendiente, int n){
     free(tareaRealizada);
 }
 
+tarea buscarTarea (tarea **v, int n){
+
+     int id;
+
+        fflush(stdin);
+    
+    printf("\nIngrese el ID (entre 1 y %d) de la tarea que desea buscar >> ", n);
+    scanf("%d", &id);
+
+    while(id < 1 || id > n){
+        printf("\nDebe ingresar un ID valido");
+        printf("\nIngrese el ID (entre 1 y %d) de la tarea que desea buscar >> ", n);
+        scanf("%d", &id);
+    }
+
+    for(int i=0; i<n; i++){
+        if(id== v[i]->tareaID){
+            return *(v)[i];
+        }
+    }
+}
 
 int main(){
 
@@ -127,6 +148,18 @@ int main(){
     cargar_tareas(vTarea, numTarea);
 
     tareas_realizadas(vTarea, numTarea);
+
+    printf("\n>>>>BUSQUEDA DE TAREA<<<<");
+
+    tarea x = buscarTarea(vTarea, numTarea);
+    
+    printf("\nResultado de la busqueda: ");
+    printf("\nID %d", x.tareaID);
+    printf("Descripcion: ");
+    puts(x.descripcion);
+    printf("\nDuracion: %d", x.duracion);
+
+    
 
     for(int i=0; i<numTarea; i++){
         free(vTarea[i]);
