@@ -129,7 +129,7 @@ int main(){
                 busq = busqueda_palabra(&pendiente, &realizada, palabra);
         }
                 if(op == 5 || op == 6){
-                if(busq){
+                if(busq!=NULL){
                     printf("\nResultado de la busqueda");
                     mostrar_tareas(busq);
                     getchar();
